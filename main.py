@@ -23,6 +23,7 @@ class Application(Frame):
         self.initUI()
         self.view = SliderCrankView(model)
         self.animated = False
+        print(self.view.model.getSliderPositionDistance())
         self.draw()
         pass
     
@@ -67,7 +68,7 @@ class Application(Frame):
     
 def main():
     root = Tk()
-    model = SliderCrankModel(75.0,200.0)
+    model = SliderCrankModel(50.0,120.0)
     model.x = 100
     model.y = 100
     Application(root, model)

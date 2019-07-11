@@ -32,6 +32,10 @@ class SliderCrankModel:
                                                          self.rod_length,
                                                          pi)
         return (minimum,maximum)
+    
+    def getSliderPositionDistance(self):
+        minumum, maximum = self.getSliderPositionRange()
+        return abs(maximum - minumum)
         
     @staticmethod
     def computeSliderPosition(x, crank_length, rod_length, phi):
