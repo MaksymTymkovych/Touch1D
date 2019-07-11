@@ -17,8 +17,26 @@ class SliderCrankModel:
         self.y = 0
     
     def getSliderPosition(self):
-        return self.x + self.crank_length * cos(self.phi) + sqrt(self.rod_length**2 - (self.crank_length*sin(self.phi))**2)
-
+        #return self.x + self.crank_length * cos(self.phi) + sqrt(self.rod_length**2 - (self.crank_length*sin(self.phi))**2)
+        return SliderCrankModel.computeSliderPosition(self.x,
+                                                      self.crank_length,
+                                                      self.rod_length,
+                                                      self.phi)
+    def getSliderPositionRange(self):
+        maximum = SliderCrankModel.computeSliderPosition(self.x,
+                                                         self.crank_length,
+                                                         self.rod_length,
+                                                         0)
+        minimum = SliderCrankModel.computeSliderPosition(self.x,
+                                                         self.crank_length,
+                                                         self.rod_length,
+                                                         pi)
+        return (minimum,maximum)
+        
+    @staticmethod
+    def computeSliderPosition(x, crank_length, rod_length, phi):
+        return x + crank_length * cos(phi) + sqrt(rod_length**2 - (crank_length*sin(phi))**2)
+        
 if __name__ == '__main__':
     model = SliderCrankModel(10.0, 25.0)
     print model.getSliderPosition()
