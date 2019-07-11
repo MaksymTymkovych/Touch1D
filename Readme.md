@@ -31,6 +31,8 @@
 * Windows
 
 ## Screens
+![Foot](screens/Touch1D-python.png "Python simulation")
+![Aneurysm](screens/Touch1D-scad.png "Device modelling")
 
 ## License
 
